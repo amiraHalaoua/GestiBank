@@ -15,9 +15,14 @@ public class UserServiceImpl implements IUserService {
 
 	@Autowired
 	private UserDaoImpl userDaoImpl;
-
+	/************************************ GESTION CONSEILLER ***************************************/
 	public void addConseiller(Conseiller c) {
 		userDaoImpl.addConseiller(c);
+		
+	}
+
+	public void removeConseiller(Integer idConseiller) {
+		userDaoImpl.removeConseiller(idConseiller);
 		
 	}
 	

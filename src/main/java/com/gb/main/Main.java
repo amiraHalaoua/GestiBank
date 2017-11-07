@@ -9,12 +9,12 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// Create Spring application context
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/Spring.xml");
 		// creat user
 		IUserService userService = ctx.getBean(IUserService.class);
-		Conseiller c = new Conseiller("amira", "halaoua", "test@gmail.com", null , "test", "C15E49");
-		userService.addConseiller(c);
+//		Conseiller c = new Conseiller("amira", "halaoua", "test@gmail.com", null , "test", "C15E49");
+//		userService.addConseiller(c);
+		userService.removeConseiller(3);
 		ctx.close();
 	}
 

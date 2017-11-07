@@ -7,6 +7,7 @@ public interface IUserDao {
 	
 	
 	
-	/********* GESTION CONSEILLER ************/
+	/************************************ GESTION CONSEILLER ***************************************/
 	public void addConseiller(Conseiller c);
+	public void removeConseiller(Integer idConseiller);
 }

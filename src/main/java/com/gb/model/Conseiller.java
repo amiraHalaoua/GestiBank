@@ -1,11 +1,14 @@
 package com.gb.model;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -21,9 +24,9 @@ public class Conseiller extends User {
 	@Column(unique = true, nullable = false)
 	private String matricule;
 	private Date date_debut;
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "conseiller")
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "conseiller")
 	private List<Client> clients;
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "conseiller")
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "conseiller")
 	private List<DemandeAdhesion> demandes;
 
 	/* Constructors */
@@ -31,10 +34,10 @@ public class Conseiller extends User {
 		super();
 	}
 
-	public Conseiller(String prenom, String nom, String email, String telephone, String password, String matricule) {
+	public Conseiller(String prenom, String nom, String email, String telephone, String password) {
 		super(prenom, nom, email, telephone);
 		this.password = password;
-		this.matricule = matricule;
+		this.matricule =nom.substring(0,3)+new SimpleDateFormat("HHmmss").format(new Date()); // matricule unique 
 		this.date_debut = new Date();
 	}
 
@@ -57,10 +60,6 @@ public class Conseiller extends User {
 
 	public String getMatricule() {
 		return matricule;
-	}
-
-	public void setMatricule(String matricule) {
-		this.matricule = matricule;
 	}
 
 	public Date getDate_debut() {

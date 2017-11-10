@@ -4,8 +4,16 @@ package com.gb.service;
 import java.util.List;
 
 import com.gb.model.Conseiller;
+import com.gb.model.User;
 
 public interface IUserService {
+	/**************************************
+	 ******** GESTION CONSEILLER **********
+	 **************************************/
+	public User addUser(User u);
+	public void updateUser(User u);
+	public User findUserById(Integer idUser);
+	
 	/**************************************
 	 ******** GESTION CONSEILLER **********
 	 **************************************/

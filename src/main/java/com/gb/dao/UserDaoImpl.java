@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.gb.model.Client;
 import com.gb.model.Conseiller;
+import com.gb.model.User;
 
 //@Repository("UserDao")
 @Component
@@ -19,6 +20,22 @@ public class UserDaoImpl implements IUserDao {
 	private EntityManager em;
 
 	/**************************************
+	 ******** GESTION USER ***************
+	 **************************************/
+	public User addUser(User u) {
+		em.persist(u);
+		return u;
+	}
+	
+	public void updateUser(User u) {
+		em.merge(u);
+	}
+	
+	public User findUserById(Integer idUser) {
+		return em.find(User.class, idUser);
+
+	}
+	/**************************************
 	 ******** GESTION CONSEILLER **********
 	 **************************************/
 
@@ -27,7 +44,7 @@ public class UserDaoImpl implements IUserDao {
 	}
 
 	public void removeConseiller(Conseiller c) {
-			em.remove(c);
+		em.remove(c);
 	}
 
 	public void updateConseiller(Conseiller c) {
@@ -54,9 +71,9 @@ public class UserDaoImpl implements IUserDao {
 	/**************************************
 	 ******** GESTION CONSEILLER **********
 	 **************************************/
-	public void addClient(Client c) {
+	public Client addClient(Client c) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	public void removeClientr(Client c) {
@@ -83,6 +100,9 @@ public class UserDaoImpl implements IUserDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
 
 	
 	

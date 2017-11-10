@@ -4,11 +4,15 @@ import java.util.List;
 
 import com.gb.model.Client;
 import com.gb.model.Conseiller;
+import com.gb.model.User;
 
 public interface IUserDao {
-	
-	
-	
+	/**************************************
+	 ******** GESTION USER ***************
+	 **************************************/
+	public User addUser(User u);
+	public void updateUser(User u);
+	public User findUserById(Integer idUser);
 	
 	/**************************************
 	 ******** GESTION CONSEILLER **********
@@ -23,9 +27,9 @@ public interface IUserDao {
 	
 	
 	/**************************************
-	 ******** GESTION CONSEILLER **********
+	 ******** GESTION CLIENT *************
 	 **************************************/
-	public void addClient(Client c);
+	public Client addClient(Client c); // il est déjà dans la table user => au lieu .persist plutôt creatQuery insert
 	public void removeClientr(Client c);
 	public void updateClient(Client c);
 	public Client findClientById(Integer idClient);

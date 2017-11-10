@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.gb.dao.UserDaoImpl;
 import com.gb.model.Conseiller;
+import com.gb.model.User;
 
 @Component
 @Transactional
@@ -17,6 +18,34 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	private UserDaoImpl userDaoImpl;
 
+	/**************************************
+	 ******** GESTION USER ***************
+	 **************************************/
+	public User addUser(User u) {
+		try {
+			userDaoImpl.addUser(u);
+			System.out.println("AJOUT AVEC SUCCEE");
+		} catch (Exception e) {
+			e.getMessage();
+			System.out.println("ERROR LORS DE L'AJOUT");
+		}
+		return u;
+	}
+	
+	public void updateUser(User u) {
+		try {
+			userDaoImpl.updateUser(u);;
+			System.out.println("OK POUR LA MODIFICATION");
+		} catch (Exception e) {
+			e.getMessage();
+			System.out.println("ERROR LORS DE LA MODIFICATION");
+		}		
+	}
+	
+	public User findUserById(Integer idUser) {
+		return userDaoImpl.findUserById(idUser);
+	}
+	
 	/**************************************
 	 ******** GESTION CONSEILLER **********
 	 **************************************/
@@ -66,5 +95,8 @@ public class UserServiceImpl implements IUserService {
 	public Conseiller findConseillerByMatricule(String matricule) {
 		return userDaoImpl.findConseillerByMatricule(matricule);
 	}
+
+
+	
 
 }

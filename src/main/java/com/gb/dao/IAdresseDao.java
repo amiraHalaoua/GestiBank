@@ -10,5 +10,5 @@ public interface IAdresseDao {
 	
 	public void updateAdresse(Adresse a);
 	public Adresse findAdresseById(Integer idAdresse);
-	//l'ajout et la supression d'une adresse se fait à travers un client
+	//l'ajout et la supression d'une adresse se fait à travers un user
 }

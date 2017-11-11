@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,7 +20,8 @@ public class DetailDemande implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_detailDemande;
 	private String nom_fichier;
-	private String path_fichier;
+	@Lob
+	private byte[] fichier;
 	@ManyToOne
 	@JoinColumn(name="FK_demandeAdh")
 	private DemandeAdhesion demandeAdhesion;
@@ -29,10 +31,9 @@ public class DetailDemande implements Serializable {
 
 	}
 
-	public DetailDemande(String nom_fichier, String path_fichier, DemandeAdhesion demandeAdhesion) {
+	public DetailDemande(String nom_fichier,DemandeAdhesion demandeAdhesion) {
 		super();
 		this.nom_fichier = nom_fichier;
-		this.path_fichier = path_fichier;
 		this.demandeAdhesion = demandeAdhesion;
 	}
 
@@ -45,12 +46,12 @@ public class DetailDemande implements Serializable {
 		this.nom_fichier = nom_fichier;
 	}
 
-	public String getPath_fichier() {
-		return path_fichier;
+	public byte[] getFichier() {
+		return fichier;
 	}
 
-	public void setPath_fichier(String path_fichier) {
-		this.path_fichier = path_fichier;
+	public void setFichier(byte[] fichier) {
+		this.fichier = fichier;
 	}
 
 	public Integer getId_detailDemande() {
@@ -65,4 +66,12 @@ public class DetailDemande implements Serializable {
 		this.demandeAdhesion = demandeAdhesion;
 	}
 
+	@Override
+	public String toString() {
+		return "DetailDemande [id_detailDemande=" + id_detailDemande + ", nom_fichier=" + nom_fichier
+				+ ", fichier=" + fichier + ", demandeAdhesion=" + demandeAdhesion + "]";
+	}
+
+
+	
 }

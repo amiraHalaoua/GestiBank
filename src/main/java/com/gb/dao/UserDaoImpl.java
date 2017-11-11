@@ -5,14 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.hibernate.jpa.criteria.predicate.IsEmptyPredicate;
 import org.springframework.stereotype.Component;
 
 import com.gb.model.Client;
 import com.gb.model.Conseiller;
 import com.gb.model.User;
 
-//@Repository("UserDao")
+
 @Component
 public class UserDaoImpl implements IUserDao {
 
@@ -20,7 +19,7 @@ public class UserDaoImpl implements IUserDao {
 	private EntityManager em;
 
 	/**************************************
-	 ******** GESTION USER ***************
+	 ******** GESTION DES DEMANDES D'ADHESION ***************
 	 **************************************/
 	public User addUser(User u) {
 		em.persist(u);
@@ -57,12 +56,12 @@ public class UserDaoImpl implements IUserDao {
 	}
 
 	/* IF NOT FOUND => return null */
+	@SuppressWarnings("unchecked")
 	public List<Conseiller> findAllConseiller() {
 		return em.createQuery("SELECT c FROM Conseiller c").getResultList();
 	}
 
 	public Conseiller findConseillerByMatricule(String matricule) {
-		System.out.println("dao"+ matricule);
 		return (Conseiller) em.createQuery("SELECT c FROM Conseiller c WHERE c.matricule LIKE :m")
 							  .setParameter("m", matricule)
 							  .getSingleResult();

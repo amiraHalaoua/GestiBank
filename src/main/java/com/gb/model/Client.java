@@ -22,7 +22,7 @@ public class Client extends User {
 	private List<Compte> comptes;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="FK_conseiller")
+	@JoinColumn(name="FK_conseiller", referencedColumnName = "id_conseiller")
 	private Conseiller conseiller;
 	
 	@OneToMany(cascade= {CascadeType.ALL},orphanRemoval = true, mappedBy="client")

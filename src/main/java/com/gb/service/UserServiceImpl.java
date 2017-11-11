@@ -58,7 +58,7 @@ public class UserServiceImpl implements IUserService {
 			System.out.println("ERROR LORS DE L'AJOUT");
 		}
 	}
-
+	// on supprime un conseiller ssi aucun client n'est affecté à lui
 	public void removeConseiller(Integer idConseiller) {
 		Conseiller c = findConseillerById(idConseiller);
 		if ((c != null) && (c.getClients().isEmpty())) {

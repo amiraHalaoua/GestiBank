@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +26,9 @@ public class DemandeAdhesion implements Serializable {
 	private Integer id_demandeAdh;
 
 	// enum statut
+	@Enumerated(value=EnumType.STRING)
 	private Statuts statut;
+	
 	private Date date_demande;
 	private Date date_trait;
 	@OneToOne
@@ -38,14 +42,11 @@ public class DemandeAdhesion implements Serializable {
 
 	/* Constructors */
 
-	public DemandeAdhesion(Conseiller conseiller, User user, List<DetailDemande> detailsDemande) {
+	public DemandeAdhesion(User user) {
 		super();
 		this.date_demande = new Date();
-		this.conseiller = conseiller;
 		this.user = user;
-		this.detailsDemande = detailsDemande;
 		this.statut= Statuts.EN_ATTENTE;
-		this.date_trait = null;
 	}
 
 	public DemandeAdhesion() {
@@ -91,7 +92,7 @@ public class DemandeAdhesion implements Serializable {
 	public void setStatut(Statuts statut) {
 		this.statut = statut;
 	}
-
+	
 	public Date getDate_demande() {
 		return date_demande;
 	}
@@ -104,5 +105,12 @@ public class DemandeAdhesion implements Serializable {
 		this.date_trait = date_trait;
 	}
 
+	@Override
+	public String toString() {
+		return "DemandeAdhesion [id_demandeAdh=" + id_demandeAdh + ", statut=" + statut + ", date_demande="
+				+ date_demande + ", date_trait=" + date_trait + ", conseiller=" + conseiller + ", user=" + user + "]";
+	}
+
 	
+
 }

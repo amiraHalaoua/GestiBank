@@ -3,6 +3,7 @@ package com.gk.service;
 
 import java.util.List;
 
+import com.gk.model.Client;
 import com.gk.model.Conseiller;
 import com.gk.model.User;
 
@@ -23,4 +24,15 @@ public interface IUserService {
 	public Conseiller findConseillerById(Integer idConseiller);
 	public List<Conseiller> findAllConseiller();
 	public Conseiller findConseillerByMatricule(String matricule);
+	
+	
+	/**************************************
+	 ******** GESTION CLIENT **********
+	 **************************************/
+	public Client addClient(Client c); 
+	public void removeClient(Client c);
+	public void updateClient(Client c);
+	public Client findClientById(Integer idClient);
+	public List<Client> findAllClient();
+	public List<Client> findClientByConseiller(Conseiller c);
 }

@@ -30,10 +30,10 @@ public interface IUserDao {
 	 ******** GESTION CLIENT *************
 	 **************************************/
 	public Client addClient(Client c); // il est déjà dans la table user => au lieu .persist plutôt creatQuery insert
-	public void removeClientr(Client c);
+	public void removeClient(Client c);
 	public void updateClient(Client c);
 	public Client findClientById(Integer idClient);
 	public List<Client> findAllClient();
-	public List<Client> findClientByConseillet(Conseiller c); // soit ByIdConseiller
+	public List<Client> findClientByConseiller(Conseiller c); // soit ByIdConseiller
 	
 }

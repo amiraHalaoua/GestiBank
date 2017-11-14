@@ -36,7 +36,7 @@ public class Main {
 		
 //		userService.removeConseiller(14);
 		
-		Conseiller c =userService.findConseillerById(2);
+//		Conseiller c =userService.findConseillerById(2);
 //		c.setNom("testModif");
 //		c.setPseudo("testos");
 //		userService.updateConseiller(c);
@@ -50,7 +50,7 @@ public class Main {
 		
 		/*************************************************************************************************/
 		
-		IDemandeAdhService demandeService = ctx.getBean(IDemandeAdhService.class);
+//		IDemandeAdhService demandeService = ctx.getBean(IDemandeAdhService.class);
 		
 //		Adresse a = new Adresse("paris", "albert", "75005", null);
 //		User u =new User("user", "userName", null, null, a, "testos");

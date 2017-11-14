@@ -1,6 +1,8 @@
 package com.gk.mbean;
 
-
+/**
+ * Classe du dernier tp avec didier je l'ai pris telle qu'elle est pour le test
+ */
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;

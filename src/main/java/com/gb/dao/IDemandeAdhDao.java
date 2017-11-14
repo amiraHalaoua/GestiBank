@@ -28,4 +28,7 @@ public interface IDemandeAdhDao {
 	public void updateDetail(DetailDemande d);
 	public void removeDetail(DetailDemande d);
 	public List<DetailDemande> findDetailByDemandeAdh(DemandeAdhesion d);
+	
+	
+	
 }

@@ -1,9 +1,12 @@
 com\gb\model\Admin.class
+com\gb\service\AdresseServiceImpl.class
 com\gb\model\Client.class
 com\gb\model\Conseiller.class
 com\gb\model\Notification.class
 com\gb\model\DemandeAdhesion.class
 com\gb\model\Agios.class
+com\gb\dao\IAdresseDao.class
+com\gb\service\IDemandeAdhService.class
 com\gb\model\Statuts.class
 com\gb\model\Operation.class
 com\gb\model\Epargne.class
@@ -15,9 +18,14 @@ com\gb\model\DemCompte.class
 com\gb\service\UserServiceImpl.class
 com\gb\model\DemCheque.class
 com\gb\model\Credit.class
+com\gb\dao\DemandeAdhDaoImpl.class
+com\gb\dao\IDemandeAdhDao.class
 com\gb\dao\IUserDao.class
 com\gb\model\Debit.class
 com\gb\model\Adresse.class
 com\gb\model\User.class
 com\gb\dao\UserDaoImpl.class
+com\gb\service\DemandeAdhServiceImpl.class
 com\gb\model\DetailDemande.class
+com\gb\dao\AdresseDaoImpl.class
+com\gb\service\IAdresseService.class

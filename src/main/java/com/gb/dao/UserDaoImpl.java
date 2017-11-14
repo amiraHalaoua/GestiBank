@@ -68,34 +68,30 @@ public class UserDaoImpl implements IUserDao {
 	}
 
 	/**************************************
-	 ******** GESTION CONSEILLER **********
+	 ******** GESTION CLIENT **********
 	 **************************************/
-	public Client addClient(Client c) {
-		// TODO Auto-generated method stub
+	public Client addClient(Integer idUser) {
 		return null;
 	}
 
-	public void removeClientr(Client c) {
-		// TODO Auto-generated method stub
-		
+	public void removeClient(Client c) {
+		em.remove(c);
 	}
 
 	public void updateClient(Client c) {
-		// TODO Auto-generated method stub
-		
+		em.merge(c);
 	}
 
 	public Client findClientById(Integer idClient) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Client.class, idClient);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Client> findAllClient() {
-		// TODO Auto-generated method stub
-		return null;
+		return em.createQuery("SELECT c FROM Client c").getResultList();
 	}
 
-	public List<Client> findClientByConseillet(Conseiller c) {
+	public List<Client> findClientByConseiller(Conseiller c) {
 		// TODO Auto-generated method stub
 		return null;
 	}

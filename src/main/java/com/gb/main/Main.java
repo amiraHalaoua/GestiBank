@@ -4,14 +4,18 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.gb.dao.IDemandeClientDao;
 import com.gb.model.Adresse;
+import com.gb.model.Client;
 import com.gb.model.Conseiller;
+import com.gb.model.DemCheque;
 import com.gb.model.DemandeAdhesion;
 import com.gb.model.DetailDemande;
 import com.gb.model.Statuts;
 import com.gb.model.User;
 import com.gb.service.IAdresseService;
 import com.gb.service.IDemandeAdhService;
+import com.gb.service.IDemandeClientService;
 import com.gb.service.IUserService;
 
 public class Main {
@@ -36,7 +40,7 @@ public class Main {
 		
 //		userService.removeConseiller(14);
 		
-		Conseiller c =userService.findConseillerById(2);
+//		System.out.println(userService.findConseillerById(9).toString());
 //		c.setNom("testModif");
 //		c.setPseudo("testos");
 //		userService.updateConseiller(c);
@@ -50,7 +54,7 @@ public class Main {
 		
 		/*************************************************************************************************/
 		
-		IDemandeAdhService demandeService = ctx.getBean(IDemandeAdhService.class);
+//		IDemandeAdhService demandeService = ctx.getBean(IDemandeAdhService.class);
 		
 //		Adresse a = new Adresse("paris", "albert", "75005", null);
 //		User u =new User("user", "userName", null, null, a, "testos");
@@ -76,7 +80,14 @@ public class Main {
 //			System.out.println(det.toString());
 //		}
 	    
-		demandeService.affecteDemandeToConseiller(1, c);
+//		demandeService.affecteDemandeToConseiller(1, c);
+		
+		/*************************************************************************************************/
+		
+		Client c = userService.findClientById(11);
+		IDemandeClientService demandeClientServ = ctx.getBean(IDemandeClientService.class);
+		demandeClientServ.addDemCheque(new DemCheque("cheque", c));
+		
 		ctx.close();
 	}
 

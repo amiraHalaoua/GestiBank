@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.gb.dao.UserDaoImpl;
+import com.gb.model.Client;
 import com.gb.model.Conseiller;
 import com.gb.model.User;
 
@@ -94,6 +95,40 @@ public class UserServiceImpl implements IUserService {
 
 	public Conseiller findConseillerByMatricule(String matricule) {
 		return userDaoImpl.findConseillerByMatricule(matricule);
+	}
+
+	/**************************************
+	 ******** GESTION CLIENT *************
+	 **************************************/
+	
+	public Client addClient(Client c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void removeClient(Client c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updateClient(Client c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Client findClientById(Integer idClient) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> findAllClient() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> findClientByConseiller(Conseiller c) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
